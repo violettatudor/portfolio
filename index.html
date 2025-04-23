@@ -525,6 +525,54 @@ html {
     content: "";
   }
 }
+@media screen and (max-width: 700px) {
+  /* Заголовок и описание под ним — по левому краю */
+  header h1,
+  header p {
+    text-align: left !important;
+  }
+
+  /* Фото, имя, роль — по центру */
+  .about-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-header-text h2,
+  .about-header-text p {
+    text-align: center;
+  }
+
+  /* Описание под аватаркой — по левому краю */
+  .about-description {
+    text-align: left;
+    font-size: 15px;
+  }
+
+  /* Ссылки — адаптивно: по центру, если переносятся */
+  .about-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 14px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .about-links a {
+    white-space: nowrap;
+  }
+
+  .about-links a::after {
+    content: " ✦";
+    margin-left: 6px;
+  }
+
+  .about-links a:last-child::after {
+    content: "";
+  }
+}
   </style>
 </head>
 <body>
