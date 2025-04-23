@@ -565,6 +565,26 @@ html {
   header p {
     text-align: left !important;
   }
+  .about-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .about-links a {
+    white-space: nowrap;
+  }
+
+  .about-links a::after {
+    content: " ✦";
+    margin-left: 4px;
+  }
+
+  .about-links a:last-child::after {
+    content: "";
+  }
 }
   </style>
 </head>
