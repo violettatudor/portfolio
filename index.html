@@ -430,6 +430,21 @@ html {
     margin: 4px 6px;
   }
 }
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.story-page .about {
+  display: none;
+}
   </style>
 </head>
 <body>
@@ -455,14 +470,14 @@ html {
 </div>
 </section>
 
-<header id="main-header">
+<header id="main-header" class="fade-in">
   <h1 style="font-size: 28px; font-weight: 600; line-height: 1.3; margin-bottom: 20px;">
   UGC-портфолио,<br>собранное как редакторский спецпроект
 </h1>
   <p>Эти люди просто жили. Они рассказывали — я слушала, наводила порядок, но старалась не мешать. Мне было важно, чтобы история звучала как человек, который её прожил. А не как человек, который её отредактировал.</p>
 </header>
 
-<section class="grid">
+<section class="grid fade-in">
 
   <!-- Карточка 1 -->
   <a class="card" onclick="showStory('story1')">
@@ -505,7 +520,7 @@ html {
   </a>
 
 </section>
-<section id="story1" class="story-page">
+<section id="story1" class="story-page fade-in">
   <img src="story1_cover.png" alt="Обложка – Китай">
   <div class="meta">
     <span class="type">Опыт</span>
@@ -545,7 +560,7 @@ html {
 
   <a class="back" onclick="goBack()">← Назад ко всем историям</a>
 </section>
-<section id="story2" class="story-page">
+<section id="story2" class="story-page fade-in">
   <img src="story2_cover.png" alt="Обложка – Такси">
   <div class="meta">
     <span class="type">Опыт</span>
@@ -596,7 +611,7 @@ html {
 
   <a class="back" onclick="goBack()">← Назад ко всем историям</a>
 </section>
-<section id="story3" class="story-page">
+<section id="story3" class="story-page fade-in">
   <img src="story3_cover.png" alt="Обложка – Египет">
   <div class="meta">
     <span class="type">Опыт</span>
@@ -644,7 +659,7 @@ html {
 
   <a class="back" onclick="goBack()">← Назад ко всем историям</a>
 </section>
-<section id="story4" class="story-page">
+<section id="story4" class="story-page fade-in">
   <img src="story4_cover.png" alt="Обложка – Казахстан">
   <div class="meta">
     <span class="type">Опыт</span>
@@ -696,6 +711,7 @@ html {
     lastScroll = window.scrollY;
     document.querySelector('.grid').style.display = 'none';
     document.getElementById('main-header').style.display = 'none';
+    document.querySelector('.about').style.display = 'none';
     document.querySelectorAll('.story-page').forEach(p => p.classList.remove('active'));
     document.getElementById(id).classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -704,6 +720,7 @@ html {
   function goBack() {
     document.querySelector('.grid').style.display = 'grid';
     document.getElementById('main-header').style.display = 'block';
+    document.querySelector('.about').style.display = 'block';
     document.querySelectorAll('.story-page').forEach(p => p.classList.remove('active'));
     window.scrollTo({ top: lastScroll, behavior: 'smooth' });
   }
